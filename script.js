@@ -20,9 +20,10 @@ var i=1;
 
 var trans = {
   "q1,a": { NewState: "q1", NewValue: "a",  move: "R" },
-  "q1,b": { NewState: "q1", NewValue: "a",move: "R" },
+  "q1,b": { NewState: "q1", NewValue: "b",move: "R" }, // cambia newvalue por a
   "q1,B": {NewState: "q2",NewValue: "B", move: "L" },
   "q2,a": {NewState: "q2",NewValue: "a",move: "L"},
+  "q2,b": {NewState: "q2",NewValue: "b",move: "L"}, // delete
   "q2,B": {NewState: "q3",NewValue: "B",move: "R"},
 };
 // ----------------------------------------------------------
@@ -155,6 +156,9 @@ function transition(){
   if(state != "q3")
   {
     if(cadena[i] != 'a' && cadena[i] != 'b' && cadena[i] != "B"){
+
+    
+
       Swal.fire(
         'Palabra Rechazada',
         '',
@@ -163,6 +167,23 @@ function transition(){
       stop();
     }
     else{
+
+
+      var ttta = cadena.length - 1 ; 
+
+      if(state == "q2"  && ( cadena[i] != cadena[ttta-i]) ){
+
+        Swal.fire(
+          'Palabra Rechazada',
+          '',
+          'error'
+        )
+        stop();
+      
+      }
+
+      
+
       condicion = state + "," + cadena[i];
       newaccion = trans[condicion];
       state = newaccion.NewState;
