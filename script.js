@@ -264,14 +264,14 @@ function movercinta(_callback) {
 //Función del grafo
 function efectoGrafo(prevState, oldValue, newState, newValue, dir){
   //console.log("#"+newState + oldValue + newValue);
-  $("#q1aa,#q1ba,#q2aa,#q2BB,#q3BB").css({"fill":"none"});
+  $("#q1aa,#q1bb,#q2aa,#q2bb,#q2BB,#q3BB").css({"fill":"none"});
   $(".nodo").css({"fill":"aquamarine","opacity":"0.1"});
 
   $("#"+newState + oldValue + newValue).css({"fill":"#0062cc","opacity": "1"});
   //$("#g"+prevState).css({"fill":"none"});
   $("#g"+newState).css({"fill":"#0062cc","opacity": "0.5"});
   if(newState == "q3"){
-    $("#q1aa,#q1ba,#q2aa,#q2BB,#q3BB").css({"fill":"black"});
+    $("#q1aa,#q1bb,#q2aa,#q2bb,#q2BB,#q3BB").css({"fill":"black"});
     $("#"+newState + oldValue + newValue).css({"fill":"#0062cc"});
   }
 }
